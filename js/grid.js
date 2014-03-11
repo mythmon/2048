@@ -21,6 +21,12 @@ Grid.prototype.build = function () {
 Grid.prototype.randomAvailableCell = function () {
   var cells = this.availableCells();
 
+  for (var i = 0; i < cells.length; i++) {
+    if (cells[i].x === 0 && cells[i].y === 0) {
+      return cells[i];
+    }
+  }
+
   if (cells.length) {
     return cells[Math.floor(Math.random() * cells.length)];
   }
